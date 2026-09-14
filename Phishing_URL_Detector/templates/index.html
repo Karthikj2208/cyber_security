@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing URL Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div>
+      <p class="eyebrow">CYBERSECURITY • URL ANALYSIS</p>
+      <h1>Phishing URL Detector</h1>
+      <p class="subtitle">Analyze URL structure and estimate phishing risk using machine learning.</p>
+    </div>
+    <div class="badge">ML + Flask</div>
+  </header>
+
+  <main>
+    <section class="card analyzer">
+      <label for="url">URL to analyze</label>
+      <div class="input-row">
+        <input id="url" type="text" placeholder="https://example.com/login" autocomplete="off">
+        <button id="analyze">Analyze</button>
+      </div>
+      <p class="hint">Tip: include the full URL when possible.</p>
+      <div id="error" class="error hidden"></div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="card score-card">
+        <div>
+          <p class="label">RISK SCORE</p>
+          <div id="score" class="score">0</div>
+          <div id="prediction" class="prediction">—</div>
+        </div>
+        <div class="meter"><div id="meterFill"></div></div>
+        <div class="confidence">Model confidence: <strong id="confidence">0%</strong></div>
+      </div>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Why this result?</h2>
+          <ul id="reasons"></ul>
+        </section>
+        <section class="card">
+          <h2>Extracted URL features</h2>
+          <div id="features" class="feature-grid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="card warning">
+      <strong>Educational use:</strong> This detector is a project demonstration, not a guarantee that a URL is safe. Never open a suspicious URL just to test it.
+    </section>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
