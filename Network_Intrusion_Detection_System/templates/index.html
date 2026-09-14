@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Network Intrusion Detection System</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow">CYBERSECURITY • NIDS</div>
+    <h1>Network Intrusion Detection System</h1>
+    <p>Traffic analysis, suspicious-activity detection, alerts and security logs.</p>
+  </div>
+  <button id="demo">Generate Demo Traffic</button>
+</header>
+
+<section class="cards">
+  <div class="card"><span>PACKETS ANALYZED</span><b id="packets">0</b></div>
+  <div class="card"><span>TOTAL ALERTS</span><b id="alerts">0</b></div>
+  <div class="card danger"><span>CRITICAL</span><b id="critical">0</b></div>
+  <div class="card warn"><span>HIGH</span><b id="high">0</b></div>
+</section>
+
+<section class="layout">
+  <div class="panel">
+    <div class="panelhead"><h2>Detection overview</h2><span id="top">None</span></div>
+    <div class="barrow"><label>Critical</label><div><i id="bc"></i></div></div>
+    <div class="barrow"><label>High</label><div><i id="bh"></i></div></div>
+    <div class="barrow"><label>Info</label><div><i id="bi"></i></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panelhead"><h2>Live alert log</h2><span id="refresh">Auto-refresh: 3s</span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Time</th><th>Severity</th><th>Type</th><th>Source</th><th>Destination</th><th>Message</th></tr></thead>
+        <tbody id="log"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>Educational IDS • Synthetic traffic only • Use packet capture only on networks you are authorized to monitor.</footer>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
